@@ -1,78 +1,86 @@
 # BirdCLEF 2024 - Bird Sound Classification
-Overview
+
+## Overview
 This repository contains the code and methodology used for the BirdCLEF 2024 Kaggle competition, where I achieved a rank of 55th out of 974 participants, earning a bronze medal. The goal of this competition was to build a model that can accurately classify bird sounds.
 
-Table of Contents
-Overview
-Data Loading & Preprocessing
-Data Augmentation
-Feature Engineering
-Model Building & Training
-Inference
-Results
-Conclusion
-Repository Structure
-How to Run
-Acknowledgments
-Data Loading & Preprocessing
+## Table of Contents
+- [Overview](#overview)
+- [Data Loading & Preprocessing](#data-loading--preprocessing)
+- [Data Augmentation](#data-augmentation)
+- [Feature Engineering](#feature-engineering)
+- [Model Building & Training](#model-building--training)
+- [Inference](#inference)
+- [Results](#results)
+- [Conclusion](#conclusion)
+- [Repository Structure](#repository-structure)
+- [How to Run](#how-to-run)
+- [Acknowledgments](#acknowledgments)
+
+## Data Loading & Preprocessing
 In this section, we load the bird sound datasets and preprocess them to prepare for training.
 
-Libraries and Dependencies:
+### Libraries and Dependencies
+- Installed necessary libraries like `torch`, `librosa`, `torchaudio`, `timm`, etc.
+- Utilized Kaggle environment setup for package installation.
 
-Installed necessary libraries like torch, librosa, torchaudio, timm, etc.
-Utilized Kaggle environment setup for package installation.
-Data Loading:
+### Data Loading
+- Loaded the audio data and corresponding labels.
+- Implemented efficient data loading techniques using PyTorch's `DataLoader` to handle large datasets.
 
-Loaded the audio data and corresponding labels.
-Implemented efficient data loading techniques using PyTorch's DataLoader to handle large datasets.
-Preprocessing:
+### Preprocessing
+- Converted audio files to spectrograms using `librosa` and `torchaudio` libraries.
+- Applied normalization and other preprocessing steps to ensure the data is suitable for training.
 
-Converted audio files to spectrograms using librosa and torchaudio libraries.
-Applied normalization and other preprocessing steps to ensure the data is suitable for training.
-Data Augmentation
+## Data Augmentation
 To enhance the model's robustness and performance, various data augmentation techniques were applied:
 
-Audio Augmentations:
+### Audio Augmentations
+- Applied noise addition, time shifting, pitch shifting, and other audio augmentations using the `audiomentations` library.
+- Implemented spectrogram augmentations like frequency masking and time masking to further diversify the training data.
 
-Applied noise addition, time shifting, pitch shifting, and other audio augmentations using the audiomentations library.
-Implemented spectrogram augmentations like frequency masking and time masking to further diversify the training data.
-Augmentation Pipelines:
+### Augmentation Pipelines
+- Created augmentation pipelines to apply multiple transformations sequentially to the audio data.
 
-Created augmentation pipelines to apply multiple transformations sequentially to the audio data.
-Feature Engineering
+## Feature Engineering
 Feature engineering focused on extracting meaningful features from the audio data:
 
-Spectrogram Features:
+### Spectrogram Features
+- Extracted Mel-spectrograms and MFCC (Mel Frequency Cepstral Coefficients) from audio files.
+- Utilized these features to create a rich representation of the audio data for model training.
 
-Extracted Mel-spectrograms and MFCC (Mel Frequency Cepstral Coefficients) from audio files.
-Utilized these features to create a rich representation of the audio data for model training.
-Statistical Features:
+### Statistical Features
+- Calculated statistical features such as mean, variance, skewness, and kurtosis of the audio signal.
 
-Calculated statistical features such as mean, variance, skewness, and kurtosis of the audio signal.
-Model Building & Training
+## Model Building & Training
 The core of this project involves building and training a robust machine learning model:
 
-Transfer Learning with EfficientNet:
+### Transfer Learning with EfficientNet
+- Leveraged the EfficientNet architecture, a state-of-the-art convolutional neural network, pre-trained on ImageNet.
+- Fine-tuned the EfficientNet model to adapt it for bird sound classification by replacing the final layers to match the number of bird classes.
 
-Leveraged the EfficientNet architecture, a state-of-the-art convolutional neural network, pre-trained on ImageNet.
-Fine-tuned the EfficientNet model to adapt it for bird sound classification by replacing the final layers to match the number of bird classes.
-Model Training:
+### Model Training
+- Utilized mixed precision training with PyTorch to accelerate the training process.
+- Implemented K-Fold cross-validation to ensure the model's robustness and to make the best use of available data.
+- Used Adam optimizer and learning rate scheduling for optimal training performance.
 
-Utilized mixed precision training with PyTorch to accelerate the training process.
-Implemented K-Fold cross-validation to ensure the model's robustness and to make the best use of available data.
-Used Adam optimizer and learning rate scheduling for optimal training performance.
-Inference
+## Inference
 For the inference stage, the trained model was used to predict bird species from new audio recordings:
 
-Loading the Trained Model:
+### Loading the Trained Model
+- Loaded the best-performing model from the training phase.
 
-Loaded the best-performing model from the training phase.
-Prediction Pipeline:
+### Prediction Pipeline
+- Implemented a prediction pipeline that processes new audio data and generates predictions using the trained model.
+- Applied post-processing techniques to refine the predictions and ensure accuracy.
 
-Implemented a prediction pipeline that processes new audio data and generates predictions using the trained model.
-Applied post-processing techniques to refine the predictions and ensure accuracy.
-Results
-Achieved a ranking of 55th out of 974 participants in the BirdCLEF 2024 competition.
-Earned a bronze medal for outstanding performance.
-Conclusion
+## Results
+- Achieved a ranking of 55th out of 974 participants in the BirdCLEF 2024 competition.
+- Earned a bronze medal for outstanding performance.
+
+## Conclusion
 This project demonstrates the application of advanced machine learning techniques to the problem of bird sound classification. By leveraging transfer learning, data augmentation, and robust feature engineering, the model achieved significant accuracy and performance. This project showcases my skills in data science, machine learning, and audio processing.
+
+## Acknowledgments
+- Kaggle for hosting the BirdCLEF 2024 competition.
+- The developers of the libraries and frameworks used in this project.
+### Competition link - https://www.kaggle.com/competitions/birdclef-2024
