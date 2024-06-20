@@ -62,7 +62,22 @@ The core of this project involves building and training a robust machine learnin
 - Utilized mixed precision training with PyTorch to accelerate the training process.
 - Implemented K-Fold cross-validation to ensure the model's robustness and to make the best use of available data.
 - Used Adam optimizer and learning rate scheduling for optimal training performance.
+- 
+## ONNX Integration
+To make the model more portable and optimize its performance during inference, we integrated the Open Neural Network Exchange (ONNX) format:
 
+### Model Export to ONNX
+- Converted the trained PyTorch model to ONNX format using `torch.onnx.export`.
+- Ensured the model's compatibility with ONNX by handling input and output shapes properly.
+
+### Benefits of Using ONNX
+- ONNX provides interoperability across different frameworks, allowing the model to be used in various environments.
+- Improved inference performance by leveraging optimized runtimes for ONNX models.
+
+### Inference with ONNX Runtime
+- Utilized ONNX Runtime for efficient model inference.
+- Implemented the inference pipeline to load the ONNX model and perform predictions.
+- 
 ## Inference
 For the inference stage, the trained model was used to predict bird species from new audio recordings:
 
@@ -71,11 +86,7 @@ For the inference stage, the trained model was used to predict bird species from
 
 ### Prediction Pipeline
 - Implemented a prediction pipeline that processes new audio data and generates predictions using the trained model.
-- Applied post-processing techniques to refine the predictions and ensure accuracy.
-
-## Results
-- Achieved a ranking of 55th out of 974 participants in the BirdCLEF 2024 competition.
-- Earned a bronze medal for outstanding performance.
+- Applied post-processing techniques to refine the predictions and ensure accuracy
 
 ## Conclusion
 This project demonstrates the application of advanced machine learning techniques to the problem of bird sound classification. By leveraging transfer learning, data augmentation, and robust feature engineering, the model achieved significant accuracy and performance. This project showcases my skills in data science, machine learning, and audio processing.
@@ -83,4 +94,4 @@ This project demonstrates the application of advanced machine learning technique
 ## Acknowledgments
 - Kaggle for hosting the BirdCLEF 2024 competition.
 - The developers of the libraries and frameworks used in this project.
-### Competition link - https://www.kaggle.com/competitions/birdclef-2024
+#### Competition link - https://www.kaggle.com/competitions/birdclef-2024
